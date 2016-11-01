@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templateConfig name="html-default" conversionRelativeURL="true">
+
+	<widget name="preview-full" widgetFile="classpath:com/giants/decorator/html/widget/paging/preview-full.html"/>
+	<widget name="preview" widgetFile="classpath:com/giants/decorator/html/widget/paging/preview.html"/>
+	<widget name="preview-simple" widgetFile="classpath:com/giants/decorator/html/widget/paging/preview-simple.html"/>
+	<widget name="preview-simple-1" widgetFile="classpath:com/giants/decorator/html/widget/paging/preview-simple-1.html"/>
+	<widget name="preview-simple-2" widgetFile="classpath:com/giants/decorator/html/widget/paging/preview-simple-2.html"/>
+	<widget name="preview-simple-3" widgetFile="classpath:com/giants/decorator/html/widget/paging/preview-simple-3.html"/>
+	
+	<block name="paging" tagHandlerClass="com.giants.decorator.html.block.PagingBlock">
+		<parameter name="value" type="com.giants.common.tools.Page"/>
+		<parameter name="pageActionUrl" type="java.lang.String"/>
+		<parameter name="pageNumCount" type="java.lang.Integer"/>
+	</block>
+	
+	<function name="include" tagHandlerClass="com.giants.decorator.html.function.IncludeFunctionHandler">
+		<parameter name="file" type="java.lang.String" allowNull="false"/>
+		<parameter name="component" type="java.lang.String"/>
+	</function>
+	
+	<function name="getHeadTags" tagHandlerClass="com.giants.decorator.html.function.GetHeadTagsFunctionHandler">
+		<parameter name="file" type="java.lang.String" allowNull="false"/>
+		<parameter name="tag" type="java.lang.String"/>
+	</function>
+	
+	<function name="url" tagHandlerClass="com.giants.decorator.html.function.UrlFunctionHandler">
+		<parameter name="url" type="java.lang.String"/>
+		<parameter name="filePath" type="java.lang.String"/>
+	</function>
+	
+	<function name="src" tagHandlerClass="com.giants.decorator.html.function.SrcFunctionHandler">
+		<parameter name="url" type="java.lang.String" allowNull="false"/>
+	</function>
+	
+	<function name="paging" tagHandlerClass="com.giants.decorator.html.function.PagingFunctionHandler">
+		<parameter name="pagingWidget" type="java.lang.String" allowNull="false"/>
+		<parameter name="pageActionUrl" type="java.lang.String" allowNull="false"/>
+		<parameter name="pageNumCount" type="java.lang.Integer"/>
+		<parameter name="page" type="com.giants.common.tools.Page"/>
+	</function>
+	
+	<function name="getWidgetCode" tagHandlerClass="com.giants.decorator.html.function.GetWidgetCodeFunctionHandler">
+		<parameter name="widgetName" type="java.lang.String" allowNull="false"/>
+		<parameter name="type" type="java.lang.String" allowNull="false"/>
+	</function>	
+	
+	<function name="urlEncoder" tagHandlerClass="com.giants.decorator.html.function.UrlEncoderFunctionHandler">
+		<parameter name="str" type="java.lang.String" allowNull="false"/>
+		<parameter name="enc" type="java.lang.String"/>
+	</function>	
+	
+</templateConfig>

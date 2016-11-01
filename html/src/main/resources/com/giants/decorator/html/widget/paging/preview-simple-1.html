@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Page Number Preview Full</title>
+<style type="text/css">
+.decotator_paging {
+	width: auto;
+	font-size: 12px;
+	color: #333;
+}
+
+.decotator_paging span {
+	float: left;
+	text-align: center;
+	padding: 0 5px;
+}
+
+.decotator_paging a {
+	display: block;
+	float: left;
+	border: 1px solid #CCC;
+	color: #333;
+	text-decoration: none;
+	height: 24px;
+	line-height: 24px;
+	padding: 0px 8px;
+	margin-left: 3px;
+	border-radius: 4px;
+}
+
+.decotator_paging a span.trigon {
+	border: 5px solid #000;
+	border-color: #F00 #33CC00 #0066FF #FFCC00;
+	height: 0px;
+	width: 0px;
+}
+
+.decotator_paging a:hover {
+	color: #F90;
+	background-color: #EEE;
+	text-decoration: underline;
+}
+
+.decotator_paging div.info {
+	line-height: 26px;
+	float: left;
+	margin-left: 5px;
+}
+
+.decotator_paging div.navigation {
+	float: right;
+	margin-right: 5px;
+}
+
+.decotator_paging .button:hover {
+	background-color: #EEE;
+	color: #F90;
+	font-weight: bold;
+}
+
+.decotator_paging .prev {
+	padding-left: 16px;
+	position: relative;
+}
+
+.decotator_paging .prev b {
+	width: 0;
+	height: 0;
+	font-size: 0px;
+	line-height: 0px;
+	border: 5px solid #FFF;
+	border-color: #fff #666 #fff #fff;
+	position: absolute;
+	top: 7px;
+	left: 0;
+}
+
+.decotator_paging .selected {
+	font-weight: bold;
+	color: #F90;
+}
+
+.decotator_paging .next {
+	padding-right: 16px;
+	position: relative;
+}
+
+.decotator_paging .next b {
+	width: 0;
+	height: 0;
+	font-size: 0px;
+	line-height: 0px;
+	border: 5px solid #FFF;
+	border-color: #fff #fff #fff #666;
+	position: absolute;
+	top: 7px;
+	right: 0;
+}
+
+.decotator_paging .next:hover b {
+	border-color: #EEE #EEE #EEE #666;
+}
+
+.decotator_paging .prev:hover b {
+	border-color: #EEE #666 #EEE #EEE;
+}
+</style>
+</head>
+<body>
+	<!-- BEGIN paging : pageNumCount=pageNumCount -->
+	<div style="clear: both; height: 0px"></div>
+	<div class="decotator_paging">
+		<div class="navigation">
+			<div class="info">
+			共${total}条 &nbsp;&nbsp;${pageNo}/${totalPage}&nbsp;&nbsp;
+			</div>
+			<!-- BEGIN if : test=#[pageNo > 1] -->
+			<a
+				href="${url(strFormat(actionUrl,{pageNo:pageNo-1}))}"
+				class="prev"><b></b>上一页</a>
+			<!-- END if -->
+			<!-- BEGIN forEach : items=pageNumbers var="pn" -->
+			<!-- BEGIN choose -->
+			<!-- BEGIN when : test=pn.ellipsis -->
+			<span>...</span>
+			<!-- END when -->
+			<!-- BEGIN when : test=#[pn.pageNo != pageNo] -->
+			<a
+				href="${url(strFormat(actionUrl,{pageNo:pn.pageNo}))}">${pn.pageNo}</a>
+			<!-- END when -->
+			<!-- BEGIN otherwise -->
+			<a class="selected">${pn.pageNo}</a>
+			<!-- END otherwise -->
+			<!-- END choose -->
+			<!-- END forEach -->
+			<!-- BEGIN if : test=#[pageNo < totalPage] -->
+			<a
+				href="${url(strFormat(actionUrl,{pageNo:pageNo+1}))}"
+				class="next"><b></b>下一页</a>
+			<!-- END if -->
+		</div>
+	</div>
+	<div style="clear: both; height: 0px"></div>
+	<!-- END paging -->
+</body>
+</html>

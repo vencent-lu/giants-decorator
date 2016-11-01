@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templateConfig name="default">
+
+	<block name="tag" tagHandlerClass="com.giants.decorator.core.block.TagBlockHandler"/>
+
+	<block name="object" tagHandlerClass="com.giants.decorator.core.block.ObjectBlockHandler">
+		<parameter name="value" type="java.lang.Object"/>
+	</block>
+	
+	<block name="forEach" tagHandlerClass="com.giants.decorator.core.block.ForEachBlock">
+		<parameter name="items" type="java.lang.Object"/>
+		<parameter name="varStatus" type="java.lang.String"/>
+	</block>
+	
+	<block name="forNum" tagHandlerClass="com.giants.decorator.core.block.ForNumBlock">
+		<parameter name="start" type="java.lang.Long" allowNull="false"/>
+		<parameter name="end" type="java.lang.Long" allowNull="false"/>
+	</block>
+	
+	<block name="if" tagHandlerClass="com.giants.decorator.core.block.ConditionBlockHandler">
+		<parameter name="test" type="java.lang.Boolean" allowNull="false"/>
+	</block>
+	
+	<block name="when" tagHandlerClass="com.giants.decorator.core.block.ConditionBlockHandler">
+		<parameter name="test" type="java.lang.Boolean" allowNull="false"/>
+	</block>
+	
+	<block name="otherwise" tagHandlerClass="com.giants.decorator.core.block.TagBlockHandler"/>
+		
+	<block name="choose" tagHandlerClass="com.giants.decorator.core.block.ChooseBlock">
+		<blockStructure name="whens" blockName="when" multiton="true" required="true"/>
+		<blockStructure name="otherwise" blockName="otherwise"/>
+	</block>
+	
+	<function name="strLimit" tagHandlerClass="com.giants.decorator.core.function.StrLimitFunctionHandler">
+		<parameter name="string" type="java.lang.String" allowNull="false"/>
+		<parameter name="threshold" type="java.lang.Integer" allowNull="false"/>
+		<parameter name="postfix" type="java.lang.String"/>
+	</function>
+	
+	<function name="strFormat" tagHandlerClass="com.giants.decorator.core.function.StrFormatFunctionHandler">
+		<parameter name="string" type="java.lang.String" allowNull="false"/>
+		<parameter name="arguments" type="java.util.Map" allowNull="false"/>
+	</function>
+	
+	<function name="replace" tagHandlerClass="com.giants.decorator.core.function.ReplaceFunctionHandler">
+		<parameter name="value" type="java.lang.Object" allowNull="false"/>
+		<parameter name="replaceMap" type="java.util.Map" allowNull="false"/>
+	</function>
+	
+	<function name="dateFormat" tagHandlerClass="com.giants.decorator.core.function.DateFormatFunctionHandler">
+		<parameter name="date" type="java.util.Date" allowNull="false"/>
+		<parameter name="format" type="java.lang.String" allowNull="false"/>
+	</function>
+	
+	<function name="currentDateTime" tagHandlerClass="com.giants.decorator.core.function.CurrentDateTimeFunctionHandler"/>
+	
+	<function name="addDateTime" tagHandlerClass="com.giants.decorator.core.function.AddDateTimeFunctionHandler">
+		<parameter name="date" type="java.util.Date" allowNull="false"/>
+		<parameter name="calendarField" type="java.lang.String" allowNull="false"/>
+		<parameter name="increment" type="java.lang.Integer" allowNull="false"/>
+	</function>
+	
+	<function name="numberFormat" tagHandlerClass="com.giants.decorator.core.function.NumberFormatFunctionHandler">
+		<parameter name="num" type="java.lang.Number" allowNull="false"/>
+		<parameter name="format" type="java.lang.String" allowNull="false"/>
+	</function>
+	
+	<function name="valueOf" tagHandlerClass="com.giants.decorator.core.function.ValueOfFunctionHandler">
+		<parameter name="type" type="java.lang.String" allowNull="false"/>
+		<parameter name="value" type="java.lang.String" allowNull="false"/>
+	</function>
+	
+	<function name="collectionUnion" tagHandlerClass="com.giants.decorator.core.function.CollectionUnionFunctionHandler">
+		<parameter name="arrayList" type="java.util.List" allowNull="false"/>
+	</function>
+	
+	<function name="listUnion" tagHandlerClass="com.giants.decorator.core.function.ListUnionFunctionHandler">
+		<parameter name="arrayList" type="java.util.List" allowNull="false"/>
+	</function>	
+	
+	<function name="size" tagHandlerClass="com.giants.decorator.core.function.SizeFunctionHandler">
+		<parameter name="value" type="java.lang.Object" allowNull="false"/>
+	</function>
+	
+	<function name="getArrayElement" tagHandlerClass="com.giants.decorator.core.function.GetArrayElementFunctionHandler">
+		<parameter name="value" type="java.lang.Object" allowNull="false"/>
+		<parameter name="index" type="java.lang.Integer" allowNull="false"/>
+	</function>
+	
+	<function name="toString" tagHandlerClass="com.giants.decorator.core.function.ToStringFunctionHandler">
+		<parameter name="object" type="java.lang.Object"/>
+	</function>
+	
+	<function name="contains" tagHandlerClass="com.giants.decorator.core.function.ContainsFunctionHandler">
+		<parameter name="collection" type="java.util.Collection" allowNull="false"/>
+		<parameter name="object" type="java.lang.Object" allowNull="false"/>
+	</function>
+	
+	<function name="jsonObject" tagHandlerClass="com.giants.decorator.core.function.JsonObjectFunctionHandler">
+		<parameter name="object" type="java.lang.Object" allowNull="false"/>
+	</function>
+	
+	<function name="getProperty" tagHandlerClass="com.giants.decorator.core.function.GetPropertyFunctionHandler">
+		<parameter name="key" type="java.lang.String" allowNull="false"/>
+	</function>
+	
+</templateConfig>

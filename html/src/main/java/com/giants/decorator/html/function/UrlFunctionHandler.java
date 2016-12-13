@@ -53,13 +53,14 @@ public class UrlFunctionHandler implements FunctionHandler {
 		return null;
 	}
 	
-	private String addVersion(TemplateEngine templateEngine, String url) {
+	private StringBuilder addVersion(TemplateEngine templateEngine, StringBuilder urlSb) {
 		HtmlTemplateConfig htmlTemplateConfig = (HtmlTemplateConfig)templateEngine.getTemplateConfig();
 		if (htmlTemplateConfig.getUrlVersion() == null
 				|| !htmlTemplateConfig.getUrlVersion()
 						.isWhetherAddVersion()) {
-			return url;
+			return urlSb;
 		}
+		String url = urlSb.toString();
 		if (htmlTemplateConfig.getUrlVersion().getRulesPattern() == null
 				|| htmlTemplateConfig.getUrlVersion().getRulesPattern()
 						.matches(url)) {
@@ -67,18 +68,15 @@ public class UrlFunctionHandler implements FunctionHandler {
 				if (urlVersionRules.getRulesPattern() == null || urlVersionRules.getRulesPattern().matches(url)) {
 					String version = templateEngine.getProperty(urlVersionRules.getPropertyName());
 					if (StringUtils.isNotEmpty(version)) {
-						return new StringBuilder(url)
-								.append(url.indexOf('?') == -1 ? '?' : '&')
+						urlSb.append(url.indexOf('?') == -1 ? '?' : '&')
 								.append(htmlTemplateConfig.getUrlVersion()
 										.getParamName()).append('=')
 								.append(version).toString();
-					} else {
-						return url;
 					}
 				}
 			}
 		}
-		return url;
+		return urlSb;
 	}
 	
 	protected String getFilePath(Map<String, Object> globalVarMap, Object dataObj,
@@ -110,11 +108,7 @@ public class UrlFunctionHandler implements FunctionHandler {
 		} else if (url.startsWith("/")) {
 			url = url.replaceFirst("\\/", "");
 		}
-		
-		if (url.length()!=0) {
-			url = this.addVersion(templateEngine, url);
-		}
-		
+				
 		StringBuilder urlSb = new StringBuilder();		
 		if (filePath != null) {
 			if (filePath.startsWith("/")) {
@@ -142,6 +136,7 @@ public class UrlFunctionHandler implements FunctionHandler {
 		}
 		
 		urlSb.append(url.replace("../", ""));
+		this.addVersion(templateEngine, urlSb);
 		
 		String domainName = this.getDomainName(templateEngine, urlSb.toString());
 		if (domainName!=null) {

@@ -99,7 +99,7 @@ public class UrlFunctionHandler implements FunctionHandler {
 		if (url == null) {
 			url = "";
 		}
-		if (url.startsWith("http")) {
+		if (url.startsWith("http") || url.startsWith("//")) {
 			return url;
 		}
 		url.replace("\\", "/");
@@ -135,12 +135,12 @@ public class UrlFunctionHandler implements FunctionHandler {
 			}
 		}
 		
-		urlSb.append(url.replace("../", ""));
-		this.addVersion(templateEngine, urlSb);
+		urlSb.append(url.replace("../", ""));		
 		
 		String domainName = this.getDomainName(templateEngine, urlSb.toString());
+		this.addVersion(templateEngine, urlSb);
 		if (domainName!=null) {
-			return new StringBuffer("http://").append(domainName).append('/').append(urlSb);
+			return new StringBuffer("//").append(domainName).append('/').append(urlSb);
 		} else {
 			StringBuffer returnUrlSb = new StringBuffer();
 			if (servletPath.startsWith("/")) {

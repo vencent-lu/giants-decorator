@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.giants.decorator.config.element;
+package com.giants.decorator.html.config.element;
 
 import java.io.Serializable;
 

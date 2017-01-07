@@ -44,6 +44,11 @@ public class StaticThemeHtmlExtTemplateEngine extends HtmlExtTemplateEngine
 			this.prugeTemplates();
 		}
 	}
+	
+	@Override
+	public Theme getCurrentTheme() {
+		return this.theme;
+	}
 
 	/* (non-Javadoc)
 	 * @see com.giants.decorator.core.engine.AbstractTemplateEngine#buildTemplateName(java.lang.String)

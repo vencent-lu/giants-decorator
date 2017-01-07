@@ -10,5 +10,7 @@ package com.giants.decorator.html;
 public interface ThemeTemplateEngine extends HtmlTemplateEngine {
 	
 	void selectTheme(Theme theme);
+	
+	Theme getCurrentTheme();
 
 }

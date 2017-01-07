@@ -41,6 +41,11 @@ public class ThemeHtmlFileTemplateEngine extends HtmlFileTemplateEngine
 		themeLocal.set(theme);
 	}
 
+	@Override
+	public Theme getCurrentTheme() {
+		return themeLocal.get();
+	}
+
 	/* (non-Javadoc)
 	 * @see com.giants.decorator.core.engine.AbstractTemplateEngine#buildTemplateName(java.lang.String)
 	 */

@@ -9,12 +9,13 @@ import java.util.Map;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 
-import com.giants.decorator.config.element.DomainName;
 import com.giants.decorator.core.Parameter;
 import com.giants.decorator.core.TemplateEngine;
 import com.giants.decorator.core.exception.TemplateException;
 import com.giants.decorator.core.function.FunctionHandler;
+import com.giants.decorator.html.ThemeTemplateEngine;
 import com.giants.decorator.html.config.HtmlTemplateConfig;
+import com.giants.decorator.html.config.element.DomainName;
 import com.giants.decorator.html.config.element.UrlDomainNameRules;
 import com.giants.decorator.html.config.element.UrlVersionRules;
 
@@ -33,10 +34,30 @@ public class UrlFunctionHandler implements FunctionHandler {
 		}
 		if (htmlTemplateConfig.getUrlDomainName()
 				.getRulesPattern().matches(url)) {
-			for (UrlDomainNameRules urlDomainNameRules : htmlTemplateConfig.getUrlDomainName()
+			for (UrlDomainNameRules urlDomainNameRule : htmlTemplateConfig.getUrlDomainName()
 					.getUrlDomainNameRules()) {
-				if (urlDomainNameRules.getRulesPattern().matches(url)) {
-					List<DomainName> domainNames = urlDomainNameRules
+				boolean isAddDomain = false;
+				if (StringUtils.isNotEmpty(urlDomainNameRule.getThemePath())) {
+					if (htmlTemplateConfig instanceof ThemeTemplateEngine) {
+						if (urlDomainNameRule.getThemePath().equals(
+								((ThemeTemplateEngine) htmlTemplateConfig)
+										.getCurrentTheme().getPath())) {
+							if (urlDomainNameRule.getRulesPattern() == null
+									|| urlDomainNameRule.getRulesPattern()
+											.matches(url)) {
+								isAddDomain = true;
+							}
+						}
+					}
+				} else {
+					if (urlDomainNameRule.getRulesPattern() == null
+							|| urlDomainNameRule.getRulesPattern()
+									.matches(url)) {
+						isAddDomain = true;
+					}
+				}
+				if (isAddDomain) {
+					List<DomainName> domainNames = urlDomainNameRule
 							.getDomainNames();
 					if (CollectionUtils.isEmpty(domainNames)) {
 						return null;

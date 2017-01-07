@@ -32,16 +32,7 @@ public class TemplateConfig implements Serializable {
 	@XmlAttribute
 	@XmlIdKey
 	private String name;
-	
-	/*@XmlAttribute
-	private Boolean conversionRelativeURL;*/
 		
-	/*@XmlElement
-	private UrlDomainName urlDomainName;*/
-	
-	/*@XmlElement
-	private UrlVersion urlVersion;*/
-	
 	@XmlManyElement
 	private List<PropertyResource> propertyResources;
 		

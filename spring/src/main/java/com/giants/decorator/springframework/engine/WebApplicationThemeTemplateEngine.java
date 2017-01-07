@@ -18,4 +18,9 @@ public class WebApplicationThemeTemplateEngine extends
 		((ThemeTemplateEngine) this.getHtmlTemplateEngine()).selectTheme(theme);
 	}
 
+	@Override
+	public Theme getCurrentTheme() {
+		return ((ThemeTemplateEngine) this.getHtmlTemplateEngine()).getCurrentTheme();
+	}
+
 }

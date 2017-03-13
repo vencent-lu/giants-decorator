@@ -5,8 +5,7 @@ package com.giants.decorator.core.parameter;
 
 import java.util.Map;
 
-import org.apache.commons.beanutils.PropertyUtils;
-
+import com.giants.common.beanutils.PropertyUtils;
 import com.giants.decorator.config.element.Parameter;
 import com.giants.decorator.core.Element;
 import com.giants.decorator.core.exception.TemplateException;

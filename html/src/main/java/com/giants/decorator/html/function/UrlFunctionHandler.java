@@ -38,9 +38,9 @@ public class UrlFunctionHandler implements FunctionHandler {
 					.getUrlDomainNameRules()) {
 				boolean isAddDomain = false;
 				if (StringUtils.isNotEmpty(urlDomainNameRule.getThemePath())) {
-					if (htmlTemplateConfig instanceof ThemeTemplateEngine) {
+					if (templateEngine instanceof ThemeTemplateEngine) {
 						if (urlDomainNameRule.getThemePath().equals(
-								((ThemeTemplateEngine) htmlTemplateConfig)
+								((ThemeTemplateEngine) templateEngine)
 										.getCurrentTheme().getPath())) {
 							if (urlDomainNameRule.getRulesPattern() == null
 									|| urlDomainNameRule.getRulesPattern()

@@ -20,7 +20,6 @@ import org.apache.commons.collections.MapUtils;
  */
 public class HtmlHelper {
 	
-	@SuppressWarnings("unchecked")
 	public static final void addRequestToGlobalVarMap(HttpServletRequest request,
 			Map<String, Object> globalVarMap) {
 		Map<String, Object> requestMap = new HashMap<String, Object>();

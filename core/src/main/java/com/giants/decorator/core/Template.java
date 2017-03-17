@@ -3,6 +3,7 @@
  */
 package com.giants.decorator.core;
 
+import java.io.Serializable;
 import java.util.Map;
 
 import com.giants.decorator.core.exception.TemplateException;
@@ -11,9 +12,15 @@ import com.giants.decorator.core.exception.TemplateException;
  * @author vencent.lu
  *
  */
-public interface Template extends Block {
+public interface Template extends Serializable {
+    
+    Block createTemplateBlock() throws TemplateException;
+    
+    String getKey();
+
+    String getContent();
 	
-	long getModifyTime();
+	//long getModifyTime();
 
 	void compile() throws TemplateException;
 

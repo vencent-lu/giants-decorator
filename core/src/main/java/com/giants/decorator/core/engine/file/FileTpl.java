@@ -23,7 +23,6 @@ public class FileTpl implements TplEntity {
 	
 	private String name;
 	private File file;
-	private String content;
 	
 	/**
 	 * 
@@ -74,7 +73,7 @@ public class FileTpl implements TplEntity {
 				sb.append(new String(buf, "UTF-8"));
 				buf = new byte[1024 * 4];
 			}
-			this.content = sb.toString().trim();
+			return sb.toString().trim();
 		} catch (IOException e) {
 			flin = null;
 			throw new TemplateFileNotFindException(this.name, this.file, e);
@@ -87,7 +86,6 @@ public class FileTpl implements TplEntity {
 			fcin = null;
 			fis = null;
 		}
-		return this.content;
 	}
 
 	/* (non-Javadoc)

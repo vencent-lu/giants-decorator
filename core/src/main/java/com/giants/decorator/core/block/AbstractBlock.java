@@ -59,12 +59,18 @@ public abstract class AbstractBlock extends AbstractElement implements Block {
 	public AbstractBlock(TemplateEngine templateEngine, String key,
 			com.giants.decorator.config.element.Block blockConf,
 			String blockTemplate) throws TemplateAnalysisException {
-		super(templateEngine, key, blockTemplate);
-		this.blockConf = blockConf;
-		if (StringUtils.isNotEmpty(blockTemplate)) {
-			this.analysis(blockTemplate);
-		}		
+		this(templateEngine, key, blockConf, blockTemplate, true);
 	}
+	
+	public AbstractBlock(TemplateEngine templateEngine, String key,
+            com.giants.decorator.config.element.Block blockConf,
+            String blockTemplate, boolean compile) throws TemplateAnalysisException {
+        super(templateEngine, key, blockTemplate);
+        this.blockConf = blockConf;
+        if (compile) {
+            this.compile();
+        }     
+    }
 		
 	private void addElement(Element element) {
 		if (this.elements == null) {
@@ -83,21 +89,22 @@ public abstract class AbstractBlock extends AbstractElement implements Block {
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.giants.decorator.core.Block#analysis(java.lang.String)
+	 * @see com.giants.decorator.core.Block#compile()
 	 */
 	@Override
-	public void analysis(String blockTemplate) throws TemplateAnalysisException {
-		this.setContent(blockTemplate);
-		this.blockTemplate = blockTemplate;
-		if (this.elements != null) {
-			this.elements.clear();
-		}
-		if (this.parameterMap != null) {
-			this.parameterMap.clear();
-		}
-		this.analysisParameter();
-		this.analysisBlock();
-		this.analysisVariable();
+	public void compile() throws TemplateAnalysisException {
+	    if (StringUtils.isNotEmpty(this.getContent())) {
+	        this.blockTemplate = this.getContent();
+	        if (this.elements != null) {
+	            this.elements.clear();
+	        }
+	        if (this.parameterMap != null) {
+	            this.parameterMap.clear();
+	        }
+	        this.analysisParameter();
+	        this.analysisBlock();
+	        this.analysisVariable();
+	    }		
 	}
 
 	private void analysisBlock() throws TemplateAnalysisException {

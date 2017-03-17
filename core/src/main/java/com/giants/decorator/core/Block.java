@@ -13,6 +13,6 @@ public interface Block extends Element {
 		
 	String getBlockTemplate();	
 		
-	void analysis(String blockTemplate) throws TemplateAnalysisException;
+	void compile() throws TemplateAnalysisException;
 	
 }

@@ -11,11 +11,13 @@ import java.util.Map;
 import org.apache.commons.collections.CollectionUtils;
 
 import com.giants.decorator.config.element.Block;
+import com.giants.decorator.config.element.CompileThreadPool;
 import com.giants.decorator.config.element.Layout;
 import com.giants.decorator.config.element.Function;
 import com.giants.decorator.config.element.PropertyResource;
 import com.giants.decorator.config.element.Widget;
 import com.giants.xmlmapping.annotation.XmlAttribute;
+import com.giants.xmlmapping.annotation.XmlElement;
 import com.giants.xmlmapping.annotation.XmlEntity;
 import com.giants.xmlmapping.annotation.XmlIdKey;
 import com.giants.xmlmapping.annotation.XmlManyElement;
@@ -32,6 +34,9 @@ public class TemplateConfig implements Serializable {
 	@XmlAttribute
 	@XmlIdKey
 	private String name;
+	
+	@XmlElement
+	private CompileThreadPool compileThreadPool;
 		
 	@XmlManyElement
 	private List<PropertyResource> propertyResources;
@@ -53,6 +58,30 @@ public class TemplateConfig implements Serializable {
 	private Map<String,Function> functionMap;
 	
 	private Map<String,Widget> widgetMap;
+	
+	public void copyCompileThreadPool(CompileThreadPool compileThreadPool) {
+	    if (compileThreadPool != null) {
+	        if (this.compileThreadPool != null) {
+	            if (compileThreadPool.getCorePoolSize() != null) {
+	                this.compileThreadPool.setCorePoolSize(compileThreadPool.getCorePoolSize());
+	            }
+	            if (compileThreadPool.getMaximumPoolSize() != null) {
+	                this.compileThreadPool.setMaximumPoolSize(compileThreadPool.getMaximumPoolSize());
+	            }
+	            if (compileThreadPool.getKeepAliveTime() != null) {
+	                this.compileThreadPool.setKeepAliveTime(compileThreadPool.getKeepAliveTime());
+	            }
+	            if (compileThreadPool.getQueueSize() != null) {
+	                this.compileThreadPool.setQueueSize(compileThreadPool.getQueueSize());
+	            }
+	            if (compileThreadPool.getStackSize() != null) {
+	                this.compileThreadPool.setStackSize(compileThreadPool.getStackSize());
+	            }
+	        } else {
+	            this.compileThreadPool = compileThreadPool;
+	        }
+	    }
+	}
 	
 	public void addAllPropertyResources(List<PropertyResource> propertyResources) {
 		if (this.propertyResources == null) {
@@ -124,21 +153,23 @@ public class TemplateConfig implements Serializable {
 		}
 	}
 	
-	/**
-	 * @return the name
-	 */
 	public String getName() {
 		return name;
 	}
 	
-	/**
-	 * @param name the name to set
-	 */
 	public void setName(String name) {
 		this.name = name;
-	}
+	}	
 	
-	public List<PropertyResource> getPropertyResources() {
+	public CompileThreadPool getCompileThreadPool() {
+        return compileThreadPool;
+    }
+
+    public void setCompileThreadPool(CompileThreadPool compileThreadPool) {
+        this.compileThreadPool = compileThreadPool;
+    }
+
+    public List<PropertyResource> getPropertyResources() {
 		return propertyResources;
 	}
 

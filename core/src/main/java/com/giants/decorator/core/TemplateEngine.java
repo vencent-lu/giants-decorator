@@ -19,6 +19,8 @@ public interface TemplateEngine {
 	void initConfig(String basePath, String relativeBasePath,
 			String... configFile) throws XmlMapException, XmlDataException,
 			XMLParseException;
+	
+    Block compileTemplateBlock(Block templateBlock) throws TemplateAnalysisException;
 
 	TemplateConfig getTemplateConfig();
 

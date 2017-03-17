@@ -9,6 +9,14 @@ import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.ArrayUtils;
@@ -70,6 +78,8 @@ public abstract class AbstractTemplateEngine implements TemplateEngine {
 	private Map<String, String> propertiesMap;
 	private final Map<String,Template> templateMap = new HashMap<String, Template>();
 	private static Map<Class<?>, Object> tagHandlerObjectMap;
+	
+	private ThreadPoolExecutor compileThreadPool;
 		
 	protected abstract Class<?> getTemplateConfigClass();
 	
@@ -133,9 +143,15 @@ public abstract class AbstractTemplateEngine implements TemplateEngine {
 					this.templateBasePath = basePath;
 				}
 				this.templateRelativePath = relativeBasePath;
-			}
+			}			
 			
-			this.loadProperties();
+            this.compileThreadPool = new ThreadPoolExecutor(this.templateConfig.getCompileThreadPool()
+                    .getCorePoolSize(), this.templateConfig.getCompileThreadPool().getMaximumPoolSize(),
+                    this.templateConfig.getCompileThreadPool().getKeepAliveTime(), TimeUnit.SECONDS,
+                    new ArrayBlockingQueue<Runnable>(this.templateConfig.getCompileThreadPool().getQueueSize()),
+                    new CompileThreadFactory(this.templateConfig.getCompileThreadPool().getStackSize()));
+            
+            this.loadProperties();
 			
 			this.logger.info(MessageFormat
 					.format("Decorator Initialization configuration  success ! \n template Path:{0} \n configuration files:{1}",
@@ -143,7 +159,29 @@ public abstract class AbstractTemplateEngine implements TemplateEngine {
 		}
 	}
 	
-	private void loadProperties() {
+	
+	
+	@Override
+    public com.giants.decorator.core.Block compileTemplateBlock(final com.giants.decorator.core.Block templateBlock)
+            throws TemplateAnalysisException {
+        Future<com.giants.decorator.core.Block> future = this.compileThreadPool.submit(new TemplateBlockCallable(
+                templateBlock));
+        try {
+            com.giants.decorator.core.Block block = future.get();
+            return block;
+        } catch (InterruptedException | ExecutionException e) {
+            Throwable cause = e.getCause();
+            if (cause instanceof Error) {
+                throw (Error)cause;
+            } else if (cause instanceof RuntimeException) {
+                throw (RuntimeException)cause;
+            } else {
+                throw (TemplateAnalysisException)cause;
+            }
+        }
+    }
+
+    private void loadProperties() {
 		if (CollectionUtils.isNotEmpty(this.templateConfig.getPropertyResources())) {
 			Map<String, PropertiesFile> propertiesFileMap = new HashMap<String, PropertiesFile>();
 			for (PropertyResource propertyResource : this.templateConfig.getPropertyResources()) {
@@ -168,6 +206,9 @@ public abstract class AbstractTemplateEngine implements TemplateEngine {
 	
 	protected void addTemplateConfigItems(TemplateConfig destTemplateConfig,
 			TemplateConfig origTemplateConfig) {
+	    if (origTemplateConfig.getCompileThreadPool() != null) {
+	        destTemplateConfig.copyCompileThreadPool(origTemplateConfig.getCompileThreadPool());
+	    }
 		if (origTemplateConfig.getPropertyResources() != null) {
 			destTemplateConfig.addAllPropertyResources(origTemplateConfig
 					.getPropertyResources());
@@ -392,6 +433,51 @@ public abstract class AbstractTemplateEngine implements TemplateEngine {
 			return null;
 		}
 		return this.propertiesMap.get(key);
+	}
+	
+	private class CompileThreadFactory implements ThreadFactory {
+	    protected final Logger   logger = LoggerFactory.getLogger(this.getClass());
+	    
+	    private final long threadStackSize;
+	    private final ThreadGroup group;
+	    private final AtomicInteger threadNumber = new AtomicInteger(1);
+	    
+	    private CompileThreadFactory(long threadStackSize) {
+	        this.threadStackSize = threadStackSize;
+	        SecurityManager s = System.getSecurityManager();
+	        group = (s != null) ? s.getThreadGroup() :
+	                              Thread.currentThread().getThreadGroup();
+	    }
+
+	    @Override
+	    public Thread newThread(Runnable r) {
+            String name = new StringBuilder("TemplateCompileThread-").append(threadNumber.getAndIncrement()).toString();
+            Thread thread = new Thread(group, r, name, this.threadStackSize);
+            this.logger
+                    .info(MessageFormat.format("Create compiled template thread : {0}", name));
+	        return thread;
+	    }
+
+	}
+	
+	private class TemplateBlockCallable implements Callable<com.giants.decorator.core.Block> {
+	    protected final Logger   logger = LoggerFactory.getLogger(this.getClass());
+	    
+	    private com.giants.decorator.core.Block templateBlock;
+	    
+        private TemplateBlockCallable(com.giants.decorator.core.Block templateBlock) {
+            super();
+            this.templateBlock = templateBlock;
+        }
+
+        @Override
+        public com.giants.decorator.core.Block call() throws Exception {
+            this.templateBlock.compile();
+            this.logger.info(MessageFormat.format("{0} compile template \"{1}\" sucess !", Thread.currentThread().getName(),
+                    this.templateBlock.getKey()));
+            return this.templateBlock;
+        }
+	    
 	}
 
 }

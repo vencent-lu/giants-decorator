@@ -9,6 +9,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.giants.decorator.config.TemplateConfig;
+import com.giants.decorator.core.Block;
 import com.giants.decorator.core.Element;
 import com.giants.decorator.core.Parameter;
 import com.giants.decorator.core.Template;
@@ -136,6 +137,11 @@ public class WebApplicationTemplateEngine implements HtmlTemplateEngine,
 	@Override
 	public String getProperty(String key) {
 		return this.htmlTemplateEngine.getProperty(key);
-	}	
+	}
+
+    @Override
+    public Block compileTemplateBlock(Block templateBlock) throws TemplateAnalysisException {
+        return this.htmlTemplateEngine.compileTemplateBlock(templateBlock);
+    }
 	
 }

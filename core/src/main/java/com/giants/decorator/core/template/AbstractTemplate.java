@@ -3,71 +3,57 @@
  */
 package com.giants.decorator.core.template;
 
+import java.text.MessageFormat;
 import java.util.Map;
+import java.util.concurrent.RejectedExecutionException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.giants.decorator.core.Block;
 import com.giants.decorator.core.Template;
 import com.giants.decorator.core.TemplateEngine;
-import com.giants.decorator.core.block.AbstractBlock;
 import com.giants.decorator.core.exception.TemplateException;
-import com.giants.decorator.core.exception.analysis.TemplateAnalysisException;
 
 /**
  * @author vencent.lu
  *
  */
-public abstract class AbstractTemplate extends AbstractBlock implements Template {
+public abstract class AbstractTemplate implements Template {
+    private static final long serialVersionUID = 505489256435811891L;
 
-	private static final long serialVersionUID = -5445601752029299469L;
-	
-	protected final Logger   logger = LoggerFactory.getLogger(this.getClass());
+    protected final Logger   logger = LoggerFactory.getLogger(this.getClass());
 
-	protected long compileTime;
+    protected TemplateEngine templateEngine;
+    
+    protected Block block;
+	protected long compileTime = 0;	
 
-	/**
+    /**
 	 * 
 	 * @param templateEngine
-	 * @param key
-	 * @param template
-	 * @param compileTime
-	 * @throws TemplateAnalysisException
 	 */
-	public AbstractTemplate(TemplateEngine templateEngine, String key,
-			String template, long compileTime) throws TemplateAnalysisException {
-		// super(templateEngine, key, null, htmlTemplate.replaceAll(">\\s*<",
-		// "><"));
-		super(templateEngine, key, null, template);
-		this.compileTime = compileTime;
+	public AbstractTemplate(TemplateEngine templateEngine) {		
+		this.templateEngine = templateEngine;
 	}
-
-	/* (non-Javadoc)
-	 * @see com.giants.decorator.core.block.AbstractBlock#parseOperateObject(java.util.Map, java.lang.Object)
-	 */
+	
 	@Override
-	protected Object parseOperateObject(Map<String, Object> globalVarMap,
-			Object dataObj) throws TemplateException {
-		return dataObj;
-	}
+    public String getKey() {
+        return this.block.getKey();
+    }
 
-	/* (non-Javadoc)
-	 * @see com.giants.decorator.core.block.AbstractBlock#parseBlock(java.util.Map, java.lang.Object, java.lang.Object)
-	 */
-	@Override
-	protected String parseBlock(Map<String, Object> globalVarMap,
-			Object dataObj, Object blockObj) throws TemplateException {
-		return this.parseSingleton(globalVarMap, dataObj, blockObj);
-	}
-
+    @Override
+    public String getContent() {
+        return this.block.getContent();
+    }
+    
 	/* (non-Javadoc)
 	 * @see com.giants.decorator.core.Template#execute(java.util.Map, java.lang.Object)
 	 */
 	@Override
 	public String execute(Map<String, Object> globalVarMap, Object dataObj)
 			throws TemplateException {
-		this.autoCompile();
-		return super.parse(globalVarMap, dataObj);
+		return this.block.parse(globalVarMap, dataObj);
 	}
 	
 	/* (non-Javadoc)
@@ -78,10 +64,21 @@ public abstract class AbstractTemplate extends AbstractBlock implements Template
 		return this.execute(null, dataObj);
 	}
 
-	protected void autoCompile() throws TemplateException {
-		if (this.getModifyTime() != this.compileTime) {
-			this.compile();
-		}
-	}
+    @Override
+    public void compile() throws TemplateException {
+        Block templateBlock = this.createTemplateBlock();
+        try {
+            this.block = this.templateEngine.compileTemplateBlock(templateBlock);
+        } catch (Exception e) {
+            this.logger.error(MessageFormat.format("\"{0}\" template compile failure !", templateBlock.getKey()));
+            if (e instanceof RejectedExecutionException) {
+                e.printStackTrace();
+            } else {
+                throw e;
+            }            
+        }
+    }
+	
+	
 
 }

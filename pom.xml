@@ -109,7 +109,7 @@
     <project-name>giants-decorator</project-name>
 	
 	<!-- 依赖库版本定义 -->
-	<spring.version>4.2.5.RELEASE</spring.version>
+	<spring.version>5.2.25.RELEASE</spring.version>
         
     <!-- Plugin的属性定义 -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

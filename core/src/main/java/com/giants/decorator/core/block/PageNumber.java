@@ -13,7 +13,7 @@ public class PageNumber {
 	private Long pageNo;
 	
 	/**
-	 * @param pageNo
+	 * @param pageNo page no
 	 */
 	public PageNumber(Long pageNo) {
 		super();
@@ -21,7 +21,7 @@ public class PageNumber {
 	}
 
 	/**
-	 * @param ellipsis
+	 * @param ellipsis ellipsis
 	 */
 	public PageNumber(boolean ellipsis) {
 		super();

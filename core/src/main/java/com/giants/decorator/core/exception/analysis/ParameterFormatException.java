@@ -20,8 +20,8 @@ public class ParameterFormatException extends TemplateAnalysisException {
 	private String value;
 	
 	/**
-	 * @param parameterConf
-	 * @param value
+	 * @param parameterConf parameter config
+	 * @param value value
 	 */
 	public ParameterFormatException(Parameter parameterConf, String value) {
 		super(
@@ -37,9 +37,9 @@ public class ParameterFormatException extends TemplateAnalysisException {
 	}
 
 	/**
-	 * @param parameterConf
-	 * @param value
-	 * @param e
+	 * @param parameterConf parameter config
+	 * @param value parameter value
+	 * @param e throwable
 	 */
 	public ParameterFormatException(Parameter parameterConf, String value,
 			Throwable e) {

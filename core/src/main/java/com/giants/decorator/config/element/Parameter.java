@@ -59,7 +59,7 @@ public class Parameter implements Serializable {
 		return allowNull;
 	}
 	/**
-	 * @param allowEmpty the allowNull to set
+	 * @param allowNull the allowNull to set
 	 */
 	public void setAllowNull(boolean allowNull) {
 		this.allowNull = allowNull;

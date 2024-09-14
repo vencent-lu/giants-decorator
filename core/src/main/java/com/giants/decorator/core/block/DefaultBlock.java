@@ -22,12 +22,12 @@ public class DefaultBlock extends AbstractBlock {
 
 	/**
 	 * 
-	 * @param templateEngine
-	 * @param key
-	 * @param blockConf
-	 * @param blockTemplate
-	 * @param blockHandler
-	 * @throws TemplateAnalysisException
+	 * @param templateEngine template engine
+	 * @param key block key
+	 * @param blockConf block config
+	 * @param blockTemplate block template
+	 * @param blockHandler block handler
+	 * @throws TemplateAnalysisException template analysis exception
 	 */
 	public DefaultBlock(TemplateEngine templateEngine, String key,
 			Block blockConf, String blockTemplate, BlockHandler blockHandler)

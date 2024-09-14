@@ -17,10 +17,11 @@ public class BlockHandlerInitException extends TemplateAnalysisException {
 	private Class<?> handlerClass;
 
 	/**
-	 * @param key
-	 * @param content
-	 * @param message
-	 * @param e
+	 * @param blockName blockName
+	 * @param handlerClass handlerClass
+	 * @param key key
+	 * @param content content
+	 * @param e e
 	 */
 	public BlockHandlerInitException(String blockName, Class<?> handlerClass,
 			String key, String content, Throwable e) {

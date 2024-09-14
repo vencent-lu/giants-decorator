@@ -24,11 +24,11 @@ public class ForEachBlock extends AbstractBlock {
 		
 	/**
 	 * 
-	 * @param templateEngine
-	 * @param key
-	 * @param blockConf
-	 * @param blockTemplate
-	 * @throws TemplateAnalysisException
+	 * @param templateEngine template engine
+	 * @param key block key
+	 * @param blockConf block configuration
+	 * @param blockTemplate block template
+	 * @throws TemplateAnalysisException template analysis exception
 	 */
 	public ForEachBlock(TemplateEngine templateEngine, String key,
 			Block blockConf, String blockTemplate)

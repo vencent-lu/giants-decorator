@@ -50,11 +50,11 @@ public abstract class AbstractBlock extends AbstractElement implements Block {
 		
 	/**
 	 * 
-	 * @param templateEngine
-	 * @param key
-	 * @param blockConf
-	 * @param blockTemplate
-	 * @throws TemplateAnalysisException
+	 * @param templateEngine template engine
+	 * @param key block key
+	 * @param blockConf block config
+	 * @param blockTemplate block template
+	 * @throws TemplateAnalysisException template analysis exception
 	 */
 	public AbstractBlock(TemplateEngine templateEngine, String key,
 			com.giants.decorator.config.element.Block blockConf,

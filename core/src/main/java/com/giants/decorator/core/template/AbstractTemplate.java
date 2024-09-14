@@ -31,7 +31,7 @@ public abstract class AbstractTemplate implements Template {
 
     /**
 	 * 
-	 * @param templateEngine
+	 * @param templateEngine template engine
 	 */
 	public AbstractTemplate(TemplateEngine templateEngine) {		
 		this.templateEngine = templateEngine;

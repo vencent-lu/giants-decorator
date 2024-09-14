@@ -20,8 +20,8 @@ public class ParameterIllegalException extends TemplateAnalysisException {
 	private String value;
 
 	/**
-	 * @param parameterConf
-	 * @param value
+	 * @param parameterConf parameter config
+	 * @param value parameter value
 	 */
 	public ParameterIllegalException(Parameter parameterConf, String value) {
 		super(

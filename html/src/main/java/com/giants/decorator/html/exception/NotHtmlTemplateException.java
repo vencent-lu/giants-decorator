@@ -19,9 +19,7 @@ public class NotHtmlTemplateException extends TemplateException {
 	private Template template;
 
 	/**
-	 * @param key
-	 * @param content
-	 * @param message
+	 * @param template template
 	 */
 	public NotHtmlTemplateException(Template template) {
 		super(template.getKey(), template.getContent(), MessageFormat.format(

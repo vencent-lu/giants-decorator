@@ -16,10 +16,10 @@ public class DataObjectConversionException extends TemplateParseException {
 	private static final long serialVersionUID = 5049526419631382992L;
 
 	/**
-	 * @param key
-	 * @param element
-	 * @param dataObj
-	 * @param e
+	 * @param key key
+	 * @param element element
+	 * @param dataObj dataObj
+	 * @param e throwable
 	 */
 	public DataObjectConversionException(String key, Element element,
 			Object dataObj, Throwable e) {

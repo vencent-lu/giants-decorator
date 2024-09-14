@@ -20,11 +20,11 @@ public abstract class TemplateParseException extends TemplateException {
 	private Object dataObj;
 
 	/**
-	 * @param key
-	 * @param element
-	 * @param dataObj
-	 * @param message
-	 * @param e
+	 * @param key key
+	 * @param element element
+	 * @param dataObj data object
+	 * @param message message
+	 * @param e throwable
 	 */
 	public TemplateParseException(String key, Element element,
 			Object dataObj, String message, Throwable e) {
@@ -36,10 +36,10 @@ public abstract class TemplateParseException extends TemplateException {
 	}
 
 	/**
-	 * @param key
-	 * @param element
-	 * @param dataObj
-	 * @param message
+	 * @param key key
+	 * @param element element
+	 * @param dataObj data object
+	 * @param message message
 	 */
 	public TemplateParseException(String key, Element element,
 			Object dataObj, String message) {

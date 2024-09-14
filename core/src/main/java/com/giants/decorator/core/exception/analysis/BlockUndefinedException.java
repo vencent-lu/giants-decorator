@@ -16,9 +16,9 @@ public class BlockUndefinedException extends TemplateAnalysisException {
 	private String blockName;
 
 	/**
-	 * @param blockName
-	 * @param key
-	 * @param content
+	 * @param blockName block name
+	 * @param key key
+	 * @param content content
 	 */
 	public BlockUndefinedException(String blockName, String key,
 			String content) {

@@ -17,9 +17,9 @@ public class FunctionParenthesisNotMatchException extends
 	private String functionBody;
 
 	/**
-	 * @param functionBody
-	 * @param key
-	 * @param content
+	 * @param functionBody function body
+	 * @param key key
+	 * @param content content
 	 */
 	public FunctionParenthesisNotMatchException(String functionBody,
 			String key, String content) {

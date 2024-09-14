@@ -22,7 +22,7 @@ public class HtmlTag {
 	private Element content;
 	
 	/**
-	 * @param name
+	 * @param tagName the name to set
 	 */
 	public HtmlTag(String tagName) {
 		super();
@@ -30,8 +30,8 @@ public class HtmlTag {
 	}
 
 	/**
-	 * @param name
-	 * @param content
+	 * @param tagName tagName to set
+	 * @param content content to set
 	 */
 	public HtmlTag(String tagName, Element content) {
 		super();
@@ -71,7 +71,7 @@ public class HtmlTag {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param tagName the name to set
 	 */
 	public void setTagName(String tagName) {
 		this.tagName = tagName;

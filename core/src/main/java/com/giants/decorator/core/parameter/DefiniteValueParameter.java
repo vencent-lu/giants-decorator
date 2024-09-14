@@ -26,11 +26,10 @@ public class DefiniteValueParameter extends AbstractParameter {
 	private Object value;
 
 	/**
-	 * @param type
-	 * @param value
-	 * @param allowNull
-	 * @param element
-	 * @throws TemplateAnalysisException 
+	 * @param parameterConf parameter conf
+	 * @param element element
+	 * @param value value
+	 * @throws TemplateAnalysisException template analysis exception
 	 */
 	public DefiniteValueParameter(
 			com.giants.decorator.config.element.Parameter parameterConf,

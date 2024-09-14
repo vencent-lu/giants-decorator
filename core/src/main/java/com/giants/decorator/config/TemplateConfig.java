@@ -245,7 +245,7 @@ public class TemplateConfig implements Serializable {
 	}
 
 	/**
-	 * @param layoutFilters the layouts to set
+	 * @param layouts the layouts to set
 	 */
 	public void setLayouts(List<Layout> layouts) {
 		this.layouts = layouts;
@@ -266,14 +266,14 @@ public class TemplateConfig implements Serializable {
 	}*/
 
 	/**
-	 * @return the urlDomainName
+	 * return the urlDomainName
 	 */
 	/*public UrlDomainName getUrlDomainName() {
 		return urlDomainName;
 	}*/
 
 	/**
-	 * @param urlDomainName the urlDomainName to set
+	 * param urlDomainName the urlDomainName to set
 	 */
 	/*public void setUrlDomainName(UrlDomainName urlDomainName) {
 		this.urlDomainName = urlDomainName;

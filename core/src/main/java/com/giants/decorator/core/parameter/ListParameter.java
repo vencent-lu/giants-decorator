@@ -24,10 +24,10 @@ public class ListParameter extends AbstractParameter {
 	private List<Parameter> arrayElements;
 
 	/**
-	 * @param parameterConf
-	 * @param element
-	 * @param listStr
-	 * @throws TemplateAnalysisException
+	 * @param parameterConf parameter conf
+	 * @param element element
+	 * @param listStr list string
+	 * @throws TemplateAnalysisException template analysis exception
 	 */
 	public ListParameter(
 			com.giants.decorator.config.element.Parameter parameterConf,

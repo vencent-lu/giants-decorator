@@ -26,10 +26,10 @@ public class GlobalVariableParameter extends AbstractParameter {
 	private String[] levelVariables;
 
 	/**
-	 * @param parameterConf
-	 * @param element
-	 * @param varkey
-	 * @throws ParameterFormatException 
+	 * @param parameterConf parameter conf
+	 * @param element element
+	 * @param varkey var key
+	 * @throws ParameterFormatException parameter format exception
 	 */
 	public GlobalVariableParameter(Parameter parameterConf, Element element,
 			String varkey) throws ParameterFormatException {

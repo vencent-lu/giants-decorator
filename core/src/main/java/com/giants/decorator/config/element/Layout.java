@@ -60,7 +60,7 @@ public class Layout implements Serializable {
 	}
 	
 	/**
-	 * @param filterRules the rules to set
+	 * @param rules the rules to set
 	 */
 	public void setRules(String rules) {
 		this.rules = rules;

@@ -14,9 +14,7 @@ public class TemplateNotFindException extends TemplateException {
 	private static final long serialVersionUID = 4170342118021609913L;
 
 	/**
-	 * @param key
-	 * @param content
-	 * @param message
+	 * @param name name
 	 */
 	public TemplateNotFindException(String name) {
 		super(name, null, MessageFormat.format(

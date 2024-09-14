@@ -22,10 +22,10 @@ public class FunctionParameter extends AbstractParameter {
 	private Function function;
 
 	/**
-	 * @param parameterConf
-	 * @param element
-	 * @param functionBody
-	 * @throws TemplateAnalysisException 
+	 * @param parameterConf parameter conf
+	 * @param element element
+	 * @param functionBody function body
+	 * @throws TemplateAnalysisException template analysis exception
 	 */
 	public FunctionParameter(Parameter parameterConf, Element element,
 			String functionBody) throws TemplateAnalysisException {

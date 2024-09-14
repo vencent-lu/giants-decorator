@@ -23,12 +23,12 @@ public class StaticThemeHtmlExtTemplateEngine extends HtmlExtTemplateEngine
 	}
 
 	/**
-	 * @param basePath
-	 * @param relativeBasePath
-	 * @param configFile
-	 * @throws XmlMapException
-	 * @throws XmlDataException
-	 * @throws XMLParseException
+	 * @param basePath base path
+	 * @param relativeBasePath relative base path
+	 * @param configFile config file
+	 * @throws XmlMapException xml map exception
+	 * @throws XmlDataException xml data exception
+	 * @throws XMLParseException xml parse exception
 	 */
 	public StaticThemeHtmlExtTemplateEngine(String basePath,
 			String relativeBasePath, String... configFile)

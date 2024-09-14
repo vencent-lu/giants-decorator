@@ -17,9 +17,9 @@ public abstract class TemplateException extends Exception {
 	private String content;
 	
 	/**
-	 * @param key
-	 * @param content
-	 * @param message
+	 * @param key key
+	 * @param content content
+	 * @param message message
 	 */
 	public TemplateException(String key, String content, String message) {
 		super(MessageFormat.format(
@@ -30,10 +30,10 @@ public abstract class TemplateException extends Exception {
 	}
 
 	/**
-	 * @param key
-	 * @param content
-	 * @param message
-	 * @param e
+	 * @param key key
+	 * @param content content
+	 * @param message message
+	 * @param e throwable
 	 */
 	public TemplateException(String key,
 			String content, String message, Throwable e) {

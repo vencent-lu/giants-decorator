@@ -33,10 +33,10 @@ public abstract class AbstractFunction extends AbstractElement implements
 	
 	/**
 	 * 
-	 * @param templateEngine
-	 * @param key
-	 * @param functionConf
-	 * @throws TemplateAnalysisException
+	 * @param templateEngine template engine
+	 * @param key key
+	 * @param functionConf function configuration
+	 * @throws TemplateAnalysisException template analysis exception
 	 */
 	public AbstractFunction(TemplateEngine templateEngine, String key,
 			com.giants.decorator.config.element.Function functionConf)

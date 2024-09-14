@@ -19,9 +19,9 @@ public class ParameterValueAndTypeMismatchException extends
 	private Parameter parameter;
 
 	/**
-	 * @param parameter
-	 * @param dataObj
-	 * @param e
+	 * @param parameter parameter
+	 * @param dataObj data object
+	 * @param e throwable
 	 */
 	public ParameterValueAndTypeMismatchException(Parameter parameter,
 			Object dataObj, Throwable e) {
@@ -37,8 +37,8 @@ public class ParameterValueAndTypeMismatchException extends
 	}
 	
 	/**
-	 * @param parameter
-	 * @param dataObj
+	 * @param parameter parameter
+	 * @param dataObj data object
 	 */
 	public ParameterValueAndTypeMismatchException(Parameter parameter,
 			Object dataObj) {

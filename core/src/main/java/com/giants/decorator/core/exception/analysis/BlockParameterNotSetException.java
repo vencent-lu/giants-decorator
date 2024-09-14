@@ -17,10 +17,10 @@ public class BlockParameterNotSetException extends TemplateAnalysisException {
 	private String paramName;
 
 	/**
-	 * @param blockName
-	 * @param paramName
-	 * @param key
-	 * @param content
+	 * @param blockName block name
+	 * @param paramName param name
+	 * @param key key
+	 * @param content content
 	 */
 	public BlockParameterNotSetException(String blockName, String paramName,
 			String key, String content) {

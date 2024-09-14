@@ -26,8 +26,8 @@ public class FileTpl implements TplEntity {
 	
 	/**
 	 * 
-	 * @param name
-	 * @param file
+	 * @param name name
+	 * @param file file
 	 */
 	public FileTpl(String name, File file) {
 		super();

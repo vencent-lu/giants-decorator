@@ -21,8 +21,8 @@ public class BlockStructure {
 	private List<Block> blocks;
 
 	/**
-	 * @param name
-	 * @param multiton
+	 * @param name name
+	 * @param multiton multiton
 	 */
 	public BlockStructure(String name, boolean multiton) {
 		super();

@@ -28,12 +28,12 @@ public class HtmlFileTemplateEngine extends AbstractHtmlTemplateEngine  {
 	}
 
 	/**
-	 * @param basePath
-	 * @param relativeBasePath
-	 * @param configFile
-	 * @throws XmlMapException
-	 * @throws XmlDataException
-	 * @throws XMLParseException
+	 * @param basePath base path
+	 * @param relativeBasePath relative base path
+	 * @param configFile config file
+	 * @throws XmlMapException xml map exception
+	 * @throws XmlDataException xml data exception
+	 * @throws XMLParseException xml parse exception
 	 */
 	public HtmlFileTemplateEngine(String basePath, String relativeBasePath,
 			String... configFile) throws XmlMapException, XmlDataException,

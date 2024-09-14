@@ -29,10 +29,10 @@ public class HtmlContentTemplate extends AbstractContentTemplate implements
 
     /**
 	 * 
-	 * @param templateEngine
-	 * @param key
-	 * @param content
-	 * @throws TemplateAnalysisException
+	 * @param templateEngine template engine
+	 * @param key key
+	 * @param content content
+	 * @throws TemplateAnalysisException template analysis exception
 	 */
 	public HtmlContentTemplate(TemplateEngine templateEngine, String key,
 			String content) throws TemplateAnalysisException {

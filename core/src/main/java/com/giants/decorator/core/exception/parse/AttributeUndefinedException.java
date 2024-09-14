@@ -18,10 +18,10 @@ public class AttributeUndefinedException extends TemplateParseException {
 	private String attributeName;
 
 	/**
-	 * @param attributeName
-	 * @param element
-	 * @param dataObj
-	 * @param e
+	 * @param attributeName attribute name
+	 * @param element element
+	 * @param dataObj data object
+	 * @param e throwable
 	 */
 	public AttributeUndefinedException(String attributeName, Element element,
 			Object dataObj, Throwable e) {

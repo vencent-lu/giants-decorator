@@ -19,7 +19,7 @@ public class ForEachStatus implements Serializable {
 	private Boolean last;
 		
 	/**
-	 * @param count
+	 * @param count the count to set
 	 */
 	public ForEachStatus(Integer count) {
 		super();

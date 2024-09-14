@@ -24,9 +24,9 @@ public class VariableParameter extends AbstractParameter {
 	private boolean isNegation = false;
 	
 	/**
-	 * @param parameterConf
-	 * @param element
-	 * @param varkey
+	 * @param parameterConf parameter conf
+	 * @param element element
+	 * @param varkey var key
 	 */
 	public VariableParameter(Parameter parameterConf, Element element,
 			String varkey) {

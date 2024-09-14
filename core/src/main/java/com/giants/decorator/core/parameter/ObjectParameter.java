@@ -26,10 +26,10 @@ public class ObjectParameter extends AbstractParameter {
 	private Map<String, Parameter> propertyMap;
 
 	/**
-	 * @param parameterConf
-	 * @param element
-	 * @param objectStr
-	 * @throws TemplateAnalysisException 
+	 * @param parameterConf parameter conf
+	 * @param element element
+	 * @param objectStr object string
+	 * @throws TemplateAnalysisException template analysis exception
 	 */
 	public ObjectParameter(
 			com.giants.decorator.config.element.Parameter parameterConf,

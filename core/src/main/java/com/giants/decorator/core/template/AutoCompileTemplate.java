@@ -18,9 +18,9 @@ public class AutoCompileTemplate extends AbstractAutoCompileTemplate {
 	
 	/**
 	 * 
-	 * @param templateEngine
-	 * @param tplEntity
-	 * @throws TemplateException
+	 * @param templateEngine template engine
+	 * @param tplEntity tpl entity
+	 * @throws TemplateException template exception
 	 */
 	public AutoCompileTemplate(TemplateEngine templateEngine,
 			TplEntity tplEntity) throws TemplateException {

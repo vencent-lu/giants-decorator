@@ -18,8 +18,8 @@ public class TemplateFileNotFindException extends TemplateException {
 	
 	/**
 	 * 
-	 * @param name
-	 * @param file
+	 * @param name name
+	 * @param file file
 	 */
 	public TemplateFileNotFindException(String name, File file) {
 		super(name, file.getName(), MessageFormat.format(
@@ -28,9 +28,9 @@ public class TemplateFileNotFindException extends TemplateException {
 	}
 
 	/**
-	 * @param key
-	 * @param content
-	 * @param e
+	 * @param name name
+	 * @param file file
+	 * @param e throwable
 	 */
 	public TemplateFileNotFindException(String name, File file, Throwable e) {
 		super(name, file.getName(), MessageFormat.format(

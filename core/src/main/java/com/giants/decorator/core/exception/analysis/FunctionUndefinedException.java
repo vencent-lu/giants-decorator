@@ -16,9 +16,9 @@ public class FunctionUndefinedException extends TemplateAnalysisException {
 	private String functionName;
 
 	/**
-	 * @param functionName
-	 * @param key
-	 * @param content
+	 * @param functionName function name
+	 * @param key key
+	 * @param content content
 	 */
 	public FunctionUndefinedException(String functionName, String key,
 			String content) {

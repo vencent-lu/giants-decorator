@@ -28,8 +28,8 @@ public abstract class AbstractParameter implements Parameter {
 			Object dataObj) throws TemplateException;
 	
 	/**
-	 * @param parameterConf
-	 * @param element
+	 * @param parameterConf parameter configuration
+	 * @param element element
 	 */
 	public AbstractParameter(
 			com.giants.decorator.config.element.Parameter parameterConf,

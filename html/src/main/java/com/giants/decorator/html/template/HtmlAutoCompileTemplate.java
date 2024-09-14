@@ -30,9 +30,9 @@ public class HtmlAutoCompileTemplate extends AbstractAutoCompileTemplate impleme
 		
 	/**
 	 * 
-	 * @param templateEngine
-	 * @param tplEntity
-	 * @throws TemplateException
+	 * @param templateEngine template engine
+	 * @param tplEntity tpl entity
+	 * @throws TemplateException template exception
 	 */
 	public HtmlAutoCompileTemplate(TemplateEngine templateEngine,
 			TplEntity tplEntity) throws TemplateException {

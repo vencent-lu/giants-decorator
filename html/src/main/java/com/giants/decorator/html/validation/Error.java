@@ -14,8 +14,8 @@ public class Error {
 	private boolean fieldError = true;
 	
 	/**
-	 * @param key
-	 * @param message
+	 * @param key key
+	 * @param message message
 	 */
 	public Error(String key, String message) {
 		super();
@@ -24,9 +24,9 @@ public class Error {
 	}
 
 	/**
-	 * @param key
-	 * @param message
-	 * @param fieldError
+	 * @param key key
+	 * @param message message
+	 * @param fieldError field error
 	 */
 	public Error(String key, String message, boolean fieldError) {
 		super();

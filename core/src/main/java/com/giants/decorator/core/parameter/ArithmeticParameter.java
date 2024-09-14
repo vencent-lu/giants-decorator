@@ -27,10 +27,10 @@ public class ArithmeticParameter extends AbstractParameter {
 	private Parameter rightNumParameter;
 
 	/**
-	 * @param parameterConf
-	 * @param element
-	 * @param arithmeticString
-	 * @throws TemplateAnalysisException 
+	 * @param parameterConf parameter conf
+	 * @param element element
+	 * @param arithmeticString arithmetic string
+	 * @throws TemplateAnalysisException template analysis exception
 	 */
 	public ArithmeticParameter(
 			com.giants.decorator.config.element.Parameter parameterConf,

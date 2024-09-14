@@ -29,9 +29,10 @@ public class ConditionParameter extends AbstractParameter {
 	private Parameter rightParam;
 
 	/**
-	 * @param parameterConf
-	 * @param element
-	 * @throws TemplateAnalysisException 
+	 * @param parameterConf parameter conf
+	 * @param element element
+	 * @param condition condition
+	 * @throws TemplateAnalysisException template analysis exception
 	 */
 	public ConditionParameter(
 			com.giants.decorator.config.element.Parameter parameterConf,

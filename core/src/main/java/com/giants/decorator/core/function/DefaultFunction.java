@@ -24,11 +24,11 @@ public class DefaultFunction extends AbstractFunction {
 
 	/**
 	 * 
-	 * @param templateEngine
-	 * @param key
-	 * @param functionConf
-	 * @param functionHandler
-	 * @throws TemplateAnalysisException
+	 * @param templateEngine template engine
+	 * @param key key
+	 * @param functionConf function config
+	 * @param functionHandler function handler
+	 * @throws TemplateAnalysisException template analysis exception
 	 */
 	public DefaultFunction(TemplateEngine templateEngine, String key, Function functionConf, FunctionHandler functionHandler)
 			throws TemplateAnalysisException {

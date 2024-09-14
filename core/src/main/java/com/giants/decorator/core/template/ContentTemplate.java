@@ -18,10 +18,10 @@ public class ContentTemplate extends AbstractContentTemplate {
 
     /**
 	 * 
-	 * @param templateEngine
-	 * @param key
-	 * @param content
-	 * @throws TemplateAnalysisException
+	 * @param templateEngine template engine
+	 * @param key template key
+	 * @param content content
+	 * @throws TemplateAnalysisException template analysis exception
 	 */
 	public ContentTemplate(TemplateEngine templateEngine, String key,
 			String content) throws TemplateAnalysisException {

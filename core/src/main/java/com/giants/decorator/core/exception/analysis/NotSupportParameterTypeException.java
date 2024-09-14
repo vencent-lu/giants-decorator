@@ -20,8 +20,8 @@ public class NotSupportParameterTypeException extends TemplateAnalysisException 
 	private String value;
 
 	/**
-	 * @param parameterConf
-	 * @param value
+	 * @param parameterConf parameter configuration
+	 * @param value value
 	 */
 	public NotSupportParameterTypeException(Parameter parameterConf,
 			String value) {

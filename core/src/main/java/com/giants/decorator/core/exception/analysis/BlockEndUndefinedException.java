@@ -16,9 +16,9 @@ public class BlockEndUndefinedException extends TemplateAnalysisException {
 	private String blockName;
 
 	/**
-	 * @param blockName
-	 * @param key
-	 * @param content
+	 * @param blockName block name
+	 * @param key key
+	 * @param content content
 	 */
 	public BlockEndUndefinedException(String blockName, String key, String content) {
 		super(key, content, MessageFormat.format(

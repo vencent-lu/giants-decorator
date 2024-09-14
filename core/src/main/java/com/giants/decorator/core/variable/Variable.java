@@ -22,9 +22,9 @@ public class Variable extends AbstractElement {
 	
 	/**
 	 * 
-	 * @param templateEngine
-	 * @param key
-	 * @throws TemplateAnalysisException
+	 * @param templateEngine template engine
+	 * @param key variable key
+	 * @throws TemplateAnalysisException template analysis exception
 	 */
 	public Variable(TemplateEngine templateEngine, String key)
 			throws TemplateAnalysisException {

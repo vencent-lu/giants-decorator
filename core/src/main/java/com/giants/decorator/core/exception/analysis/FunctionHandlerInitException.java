@@ -17,11 +17,11 @@ public class FunctionHandlerInitException extends TemplateAnalysisException {
 	private Class<?> handlerClass;
 
 	/**
-	 * @param functionName
-	 * @param handlerClass
-	 * @param key
-	 * @param content
-	 * @param e
+	 * @param functionName function name
+	 * @param handlerClass handler class
+	 * @param key key
+	 * @param content content
+	 * @param e throwable
 	 */
 	public FunctionHandlerInitException(String functionName,
 			Class<?> handlerClass, String key, String content, Throwable e) {

@@ -17,8 +17,8 @@ public class WidgetTemplateReadErrorException extends TemplateException {
 	private String widgetfile;
 
 	/**
-	 * @param name
-	 * @param file
+	 * @param name name
+	 * @param file file
 	 */
 	public WidgetTemplateReadErrorException(String name, String file) {
 		super(name, file, MessageFormat.format(

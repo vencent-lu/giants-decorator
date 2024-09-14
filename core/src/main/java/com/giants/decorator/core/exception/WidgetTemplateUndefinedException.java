@@ -16,8 +16,7 @@ public class WidgetTemplateUndefinedException extends TemplateException {
 	private String widgetName;
 
 	/**
-	 * @param key
-	 * @param content
+	 * @param key key
 	 */
 	public WidgetTemplateUndefinedException(String key) {
 		super(key, key, MessageFormat.format(

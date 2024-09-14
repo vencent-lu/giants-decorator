@@ -19,8 +19,8 @@ public class BlockStructureNotSetException extends TemplateAnalysisException {
 	private String structureBlockName;
 
 	/**
-	 * @param block
-	 * @param structureBlockName
+	 * @param block block
+	 * @param structureBlockName structure block name
 	 */
 	public BlockStructureNotSetException(Block block, String structureBlockName) {
 		super(block.getKey(), block.getContent(), MessageFormat.format(

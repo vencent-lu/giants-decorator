@@ -18,8 +18,8 @@ public class ParameterNotAllowNullException extends TemplateParseException {
 	private Parameter parameter;
 
 	/**
-	 * @param parameter
-	 * @param dataObj
+	 * @param parameter parameter
+	 * @param dataObj data object
 	 */
 	public ParameterNotAllowNullException(Parameter parameter, Object dataObj) {
 		super(parameter.getElement().getKey(), parameter.getElement(), dataObj,

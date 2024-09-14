@@ -18,7 +18,7 @@ public class BlockStructureRepeatException extends TemplateAnalysisException {
 	private Block block;
 
 	/**
-	 * @param block
+	 * @param block block
 	 */
 	public BlockStructureRepeatException(Block block) {
 		super(block.getKey(), block.getContent(), MessageFormat.format(

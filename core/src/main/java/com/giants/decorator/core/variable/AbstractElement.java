@@ -24,9 +24,9 @@ public abstract class AbstractElement implements Element {
 		
 	/**
 	 * 
-	 * @param templateEngine
-	 * @param key
-	 * @param content
+	 * @param templateEngine template engine
+	 * @param key the key
+	 * @param content content
 	 */
 	public AbstractElement(TemplateEngine templateEngine, String key,
 			String content) {

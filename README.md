@@ -9,7 +9,6 @@ Giants-Decorator
 Decorator 是一个基于 Java 的模板引擎（template engine）。它使用简单、直观的模板语言引用由 Java 代码定义的对象，编译与执行分离、速度快。模板用注释 `<!-- BEGIN -->` / `<!-- END -->` 标记动态块，用 `${}` 标记输出占位符，与 HTML 语法完全兼容，能在普通浏览器或编辑器中正确显示，无需任何第三方模板插件即可实现所见即所得。
 
 - 📖 **完整使用手册：[docs/使用手册.md](docs/使用手册.md)**
-- 🔗 Wiki：https://github.com/vencent-lu/giants-decorator/wiki
 
 特性
 -------------
@@ -138,7 +137,6 @@ Spring MVC 集成
 -------------
 
 - 使用手册（推荐）：[docs/使用手册.md](docs/使用手册.md)
-- Wiki：https://github.com/vencent-lu/giants-decorator/wiki
 
 许可协议
 -------------
